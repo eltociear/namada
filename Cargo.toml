@@ -8,6 +8,7 @@ members = [
   "encoding_spec",
   "ethereum_bridge",
   "examples",
+  "gas",
   "governance",
   "ibc",
   "macros",
