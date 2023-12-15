@@ -4407,6 +4407,7 @@ name = "namada_governance"
 version = "0.28.1"
 dependencies = [
  "namada_core",
+ "namada_trans_token",
 ]
 
 [[package]]
