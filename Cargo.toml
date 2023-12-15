@@ -6,6 +6,7 @@ members = [
   "benches",
   "core",
   "ethereum_bridge",
+  "governance",
   "proof_of_stake",
   "shared",
   "test_utils",
