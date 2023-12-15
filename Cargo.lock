@@ -4411,6 +4411,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "namada_ibc"
+version = "0.1.0"
+
+[[package]]
 name = "namada_macros"
 version = "0.28.1"
 dependencies = [
