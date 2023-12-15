@@ -4,17 +4,14 @@ pub mod storage;
 use std::collections::BTreeMap;
 
 use borsh::{BorshDeserialize, BorshSchema, BorshSerialize};
+use namada_core::storage_api::{self, ResultExt, StorageRead, StorageWrite};
+use namada_core::types::address::{Address, InternalAddress};
+use namada_core::types::chain::ProposalBytes;
+use namada_core::types::dec::Dec;
+use namada_core::types::hash::Hash;
+use namada_core::types::time::DurationSecs;
+use namada_core::types::token;
 use thiserror::Error;
-
-use super::storage::types;
-use super::storage_api::{self, ResultExt, StorageRead, StorageWrite};
-use crate::ledger::storage as ledger_storage;
-use crate::types::address::{Address, InternalAddress};
-use crate::types::chain::ProposalBytes;
-use crate::types::dec::Dec;
-use crate::types::hash::Hash;
-use crate::types::time::DurationSecs;
-use crate::types::token;
 
 /// The internal address for storage keys representing parameters than
 /// can be changed via governance.
@@ -95,9 +92,9 @@ pub struct EpochDuration {
 #[derive(Error, Debug)]
 pub enum ReadError {
     #[error("Storage error: {0}")]
-    StorageError(ledger_storage::Error),
+    StorageError(namada_storage::Error),
     #[error("Storage type error: {0}")]
-    StorageTypeError(types::Error),
+    StorageTypeError(namada_storage::types::Error),
     #[error("Protocol parameters are missing, they must be always set")]
     ParametersMissing,
 }
@@ -106,7 +103,7 @@ pub enum ReadError {
 #[derive(Error, Debug)]
 pub enum WriteError {
     #[error("Storage error: {0}")]
-    StorageError(ledger_storage::Error),
+    StorageError(namada_storage::Error),
     #[error("Serialize error: {0}")]
     SerializeError(String),
 }
