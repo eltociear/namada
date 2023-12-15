@@ -10,6 +10,7 @@ members = [
   "shared",
   "test_utils",
   "tests",
+  "trans_token",
   "tx_prelude",
   "vm_env",
   "macros",
